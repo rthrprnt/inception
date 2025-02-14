@@ -25,7 +25,7 @@ clean:
 	@docker rm $$(docker ps -qa) || true
 	@docker rmi -f $$(docker images -qa) || true
 	@docker volume rm $$(docker volume ls -q) || true
-	@docker network rm $$(docker network ls -q | grep -v "bridge\|host\|none") || true
+	@docker network prune -f || true
 	sudo chmod -R 777 /home/data/mariadb
 	sudo chmod -R 777 /home/data/wordpress
 	@rm -rf $(WP_DATA) || true
