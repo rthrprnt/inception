@@ -4,11 +4,6 @@ service mariadb start;
 
 sleep 5
 
-#SQL_DB="wordpress"
-#SQL_USER="arthur"
-#SQL_PWD="123"
-#SQL_ROOT_PWD="123456"
-
 mariadb -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DB}\`;"
 
 mariadb -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PWD}';"

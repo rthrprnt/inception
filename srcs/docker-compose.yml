@@ -52,7 +52,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/data/mariadb
+      device: /home/apernot/data/mariadb
 
 
   wordpress:
@@ -61,7 +61,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/data/wordpress
+      device: /home/apernot/data/wordpress
 
 
 networks:

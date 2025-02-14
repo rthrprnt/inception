@@ -1,5 +1,5 @@
-WP_DATA = /home/data/wordpress
-DB_DATA = /home/data/mariadb
+WP_DATA = /home/apernot/data/wordpress
+DB_DATA = /home/apernot/data/mariadb
 
 all: up
 
@@ -26,8 +26,8 @@ clean:
 	@docker rmi -f $$(docker images -qa) || true
 	@docker volume rm $$(docker volume ls -q) || true
 	@docker network prune -f || true
-	sudo chmod -R 777 /home/data/mariadb
-	sudo chmod -R 777 /home/data/wordpress
+	sudo chmod -R 777 /home/apernot/data/mariadb
+	sudo chmod -R 777 /home/apernot/data/wordpress
 	@rm -rf $(WP_DATA) || true
 	@rm -rf $(DB_DATA) || true
 
