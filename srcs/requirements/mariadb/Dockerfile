@@ -1,8 +1,8 @@
-FROM debian:bookworm
+FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y mariadb-server net-tools
+RUN apt-get install -y mariadb-server netstat curl
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 

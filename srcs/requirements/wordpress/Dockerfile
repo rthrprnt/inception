@@ -1,8 +1,8 @@
-FROM debian:bookworm
+FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y wget php8.2 php-fpm php-mysql mariadb-client curl net-tools
+RUN apt-get install -y wget php7.4 php-fpm php-mysql mariadb-client netstat curl
 
 COPY conf/wordpress.sh /usr/local/bin/wordpress.sh
 

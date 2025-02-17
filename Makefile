@@ -6,7 +6,7 @@ all: up
 up: build
 	@mkdir -p $(WP_DATA)
 	@mkdir -p $(DB_DATA)
-	docker compose -f ./srcs/docker-compose.yml up -d
+	docker compose -f ./srcs/docker-compose.yml up
 
 down:
 	docker compose -f ./srcs/docker-compose.yml down
@@ -26,10 +26,10 @@ clean:
 	@docker rmi -f $$(docker images -qa) || true
 	@docker volume rm $$(docker volume ls -q) || true
 	@docker network prune -f || true
-	sudo chmod -R 777 /home/apernot/data/mariadb
-	sudo chmod -R 777 /home/apernot/data/wordpress
-	@rm -rf $(WP_DATA) || true
-	@rm -rf $(DB_DATA) || true
+	@docker system prune -a --volumes -f
+	@sudo rm -rf $(WP_DATA) || true
+	@sudo rm -rf $(DB_DATA) || true
+
 
 re: clean up
 

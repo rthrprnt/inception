@@ -1,9 +1,9 @@
 
-FROM debian:bookworm
+FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y nginx openssl net-tools curl
+RUN apt-get install -y nginx openssl netstat curl
 
 RUN mkdir -p /etc/nginx/ssl
 
