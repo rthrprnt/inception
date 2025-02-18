@@ -2,7 +2,7 @@ FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y mariadb-server netstat curl
+RUN apt-get install -y mariadb-server net-tools
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 

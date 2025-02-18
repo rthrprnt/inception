@@ -1,6 +1,5 @@
 #!/bin/sh
 
-sleep 5
 #telecharger CLI
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
@@ -21,7 +20,13 @@ wp --allow-root core config \
    --dbuser="$SQL_USER" \
    --dbpass="$SQL_PWD" \
    --dbhost=mariadb:3306 \
-   --path='/var/www/wordpress'
+
+
+until wp db check --allow-root; do
+  echo "Waiting for database..."
+  sleep 3
+done
+
 
 wp --allow-root core install \
     --url="$WP_DOMAIN_NAME" \

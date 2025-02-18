@@ -3,7 +3,7 @@ FROM debian:bullseye-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y nginx openssl netstat curl
+RUN apt-get install -y nginx openssl
 
 RUN mkdir -p /etc/nginx/ssl
 
